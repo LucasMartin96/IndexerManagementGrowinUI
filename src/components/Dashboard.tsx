@@ -1,6 +1,6 @@
 import { Outlet, Link, useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
-import { FiHome, FiPlay, FiSettings, FiLogOut, FiUser } from 'react-icons/fi'
+import { FiHome, FiPlay, FiSettings, FiLogOut, FiUser, FiSearch } from 'react-icons/fi'
 
 const Dashboard = () => {
   const { user, logout } = useAuth()
@@ -16,6 +16,7 @@ const Dashboard = () => {
     if (path === '/indexers' && location.pathname === '/indexers') return true
     if (path !== '/indexers' && location.pathname === path) return true
     if (path === '/indexers' && location.pathname.startsWith('/indexers/')) return true
+    if (path === '/licitaciones' && location.pathname === '/licitaciones') return true
     return false
   }
 
@@ -52,6 +53,17 @@ const Dashboard = () => {
                 >
                   <FiPlay className="mr-2" />
                   Iniciar Indexador
+                </Link>
+                <Link
+                  to="/licitaciones"
+                  className={`${
+                    isActive('/licitaciones')
+                      ? 'bg-primary/10 text-primary border-primary'
+                      : 'text-dark-text-secondary hover:text-dark-text-primary hover:bg-dark-border/50 border-transparent'
+                  } inline-flex items-center px-4 py-2 border-b-2 text-sm font-medium transition-colors`}
+                >
+                  <FiSearch className="mr-2" />
+                  Licitaciones
                 </Link>
                 <Link
                   to="/params"

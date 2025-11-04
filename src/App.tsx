@@ -7,6 +7,7 @@ import IndexersList from './components/IndexersList'
 import IndexerDetails from './components/IndexerDetails'
 import StartIndexer from './components/StartIndexer'
 import ParamsManager from './components/ParamsManager'
+import LicitacionesSearch from './components/LicitacionesSearch'
 import PrivateRoute from './components/PrivateRoute'
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
           <Route path="indexers/:id" element={<IndexerDetails />} />
           <Route path="indexers/start" element={<StartIndexer />} />
           <Route path="params" element={<ParamsManager />} />
+          <Route path="licitaciones" element={<LicitacionesSearch />} />
         </Route>
       </Routes>
     </AuthProvider>
